@@ -1,0 +1,137 @@
+#terminal-window {
+    width: min(560px, 95vw);
+    height: min(520px, 80vh);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    display: none;
+    flex-direction: column;
+
+}
+
+#terminal-window .window-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    overflow: hidden;
+    min-height: 0;
+
+}
+
+#messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding 4px 2px;
+    min-height: 0;
+
+}
+
+
+.msg {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.msg-user {
+    flex-direction: row-reverse;
+}
+
+.msg-avatar {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: 2px solid;
+    border-color: var(--btn-highlight) var(--btn-shadow) var(--btn-shadow) var(--btn-highlight);
+    background: var(--win-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+
+}
+
+
+.msg-bubble {
+    max-width: 75%;
+    padding: 6px 10px;
+    font-family: 'VT323';
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--text-dark);
+    border: 2px solid;
+    border-color: var(--btn-highlight) var(--btn-shadow) var(--btn-shadow) var(--btn-highlight);
+}
+
+.msg.me .msg-bubble {
+    background: var(--chat-ai);
+
+}
+
+.msg.user .msg-bubble {
+    background: var(--chat-user);
+}
+
+.sender {
+    font-family: 'Press Start 2P';
+    font-size: 6px;
+    color: var(--win-title);
+    display: block;
+    margin-bottom: 3px;
+}
+
+#input-area {
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+    flex-shrink: 0;
+
+}
+
+#prompt {
+    color: #ffb3d9;
+    white-space: nowrap;
+    font-family: 'VT323';
+    font-size: 18px
+}
+
+#terminal-input {
+    flex: 1;
+    background: #fff;
+    border: 2px solid;
+    border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight) var(--btn-shadow);
+    padding: 6px 8px;
+    font-family: 'VT323';
+    font-size: 18px;
+    color: var(--text-dark);
+    outline: none;
+    resize: none;
+    max-height: 36px;
+    caret-color: #ffb3d9;
+    overflow: hidden;
+    line-height: 1.3;
+    padding-top: 8px;
+}
+
+#send-btn {
+    padding: 0 12px;
+    background: var(--btn-face);
+    border: 2px solid;
+    border-color: var(--btn-highlight) var(--btn-shadow) var(--btn-shadow) var(--btn-highlight);
+    font-family: 'VT323';
+    font-size: 18px;
+    color: var(--text-dark);
+    cursor: pointer;
+    white-space: nowrap;
+
+
+}
+
+
+#send-btn:active {
+    border-color: v var(--btn-shadow) var(--btn-highlight)var(--btn-highlight) var(--btn-shadow);
+}

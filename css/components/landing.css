@@ -1,0 +1,76 @@
+#landing-window {
+    width: min(700px, 95vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%)
+}
+
+#landing-content {
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#ascii-stage {
+    background: #1a0a2e;
+    padding: 20px 24px 16px;
+    text-align: center;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ascii-art {
+    font-family: 'VT323';
+    font-size: 14px;
+    color: #ffb3d9;
+    text-shadow: 0 0 8px #ff80c0, 0 0 20px #ff40a0;
+    white-space: pre;
+    line-height: 1.2;
+}
+
+#landing-info {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.info-box {
+    background: var(--win-bg);
+    border: 2px solid;
+    border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight) var(--btn-shadow);
+    padding: 8px 10px;
+    font-family: 'VT323';
+    font-size: 17px;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.label {
+    font-family: 'Press Start 2P';
+    font-size: 7px;
+    color: var(--win-title);
+    display: block;
+    margin-bottom: 4px;
+
+}
+
+#launch-btn {
+    padding: 10px;
+    background: linear-gradient(90deg, var(--win-title), var(--win-title-end));
+    border: 2px solid;
+    border-color: var(--btn-highlight) var(--btn-shadow) var(--btn-shadow) var(--btn-highlight);
+    font-family: 'Press Start 2P';
+    font-size: 9px;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 #3a2a5a;
+}
+
+#launch-btn:active {
+    border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight)var(--btn-shadow);
+}

@@ -10,11 +10,66 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components/taskbar.css">
+    <link rel="stylesheet" href="css/components/window.css">
+    <link rel="stylesheet" href="css/components/landing.css">
+    <link rel="stylesheet" href="css/components/terminal.css">
 </head>
 
 <body>
 
     <div id="desktop">
+        <div class="window" id="landing-window">
+            <div class="window-titlebar">
+                <span class="window-title">♡ yourname.exe — welcome</span>
+                <div class="window-controls">
+                    <div class="win-btn">_</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn" style="background: #ffb3d9">✕</div>
+                </div>
+            </div>
+            <div class="window-content" id="landing-content">
+                <div id="ascii-stage">
+                    <pre id="ascii-art"></pre>
+                </div>
+                <div id="landing-info">
+                    <div class="info-box">
+                        <span class="label">ABOUT</span>
+                        Hi, I'm Jade! I'm an aspiring software engineer majoring in Applied Computation and Mathematics
+                        at Kennesaw State University! ♡
+                    </div>
+                    <button id="launch-btn" onclick="openTerminal()">
+                        &gt; enter
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="window" id="terminal-window" style="display: none;">
+            <div class="window-titlebar">
+                <span class="window-title">♡ jade.exe — chat</span>
+                <div class="window-controls">
+                    <div class="win-btn" onclick="closeterminal()">_</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeTerminal()">✕</div>
+                </div>
+            </div>
+            <div class="window-content" id="terminal-body">
+                <div id="messages">
+                    <div class="msg me">
+                        <div class="msg-avatar">:)</div>
+                        <div class="msg-bubble">
+                            <span class="sender">YOURNAME</span>
+                            hey! i'm jade — type a command to learn more about me ♡<br><br>
+                            commands: projects // skills // about // interests // resume
+                        </div>
+                    </div>
+                </div>
+                <div id="input-area">
+                    <textarea id="terminal-input" autocomplete="off" spellcheck="false"
+                        placeholder="type a command... ^.^" rows="1"></textarea>
+                    <button id="send-btn" onclick="sendCommand()">send ♡</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="taskbar">

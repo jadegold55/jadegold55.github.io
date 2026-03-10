@@ -15,6 +15,8 @@
     --text-dark: #2a1a3a;
     --text-dim: #6b5b8c;
     --desktop-bg: #000000;
+    --chat-ai: #e8e0ff;
+    --chat-user: #ffe0f0;
 }
 
 * {
