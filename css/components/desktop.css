@@ -1,0 +1,84 @@
+#desktop-icons {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+    width: 80px;
+    margin-bottom: 80px;
+    margin-right: 60px;
+    flex-direction: row;
+}
+
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+    width: 80px;
+
+
+
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+
+}
+
+.desktop-icon span {
+    font-family: 'VT323';
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+
+}
+
+.desktop-icon:hover {
+    background: #ffffff20;
+}
+
+.desktop-icon.selected {
+    background: #6b5b8c80;
+}
+
+#loading-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    top: 60%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+}
+
+#loading-bar-label {
+    font-family: 'VT3232';
+    font-size: 14px;
+    color: #0c0000;
+
+}
+
+#loading-bar-track {
+    width: 200px;
+    height: 20px;
+    background-color: var(--win-bg);
+    border: 2px solid;
+    border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight) var(--btn-shadow);
+    overflow: hidden;
+}
+
+#loading-bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: var(--win-title);
+    transition: none;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yourname.exe</title>
+    <title>Jade's Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap"
         rel="stylesheet">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/components/window.css">
     <link rel="stylesheet" href="css/components/landing.css">
     <link rel="stylesheet" href="css/components/terminal.css">
+    <link rel="stylesheet" href="css/components/desktop.css">
 </head>
 
 <body>
@@ -24,13 +25,38 @@ c(")(") </pre>
         <pre class="critter" id="cat-critter">/\____/\
 (=^  ^=)
  (") (")_J</pre>
-        <div class="window" id="landing-window">
+        <div class="window" id="loading-bar-container" style="display:none;">
+            <div class="window-titlebar">
+                <span class="window-title">loading...</span>
+            </div>
+            <div class="window-content">
+                <div id="loading-bar-label">please wait... ♡</div>
+                <div id="loading-bar-track">
+                    <div id="loading-bar-fill"></div>
+                </div>
+            </div>
+        </div>
+        <div id="desktop-icons">
+            <div class="desktop-icon" ondblclick="openApp('jade')">
+                <img src="assets/github-02.png" alt="jade.exe" />
+                <span>jade.exe</span>
+            </div>
+            <div class="desktop-icon" ondblclick="openApp('projects')">
+                <img src="assets/folder-05.png" alt="projects" />
+                <span>projects</span>
+            </div>
+            <div class="desktop-icon" ondblclick="openApp('terminal')">
+                <img src="assets/my-puter.png" alt="terminal" />
+                <span>terminal</span>
+            </div>
+        </div>
+        <div class="window" id="jade-window" style="display: none;">
             <div class="window-titlebar">
                 <span class="window-title">♡ jade.exe — loading...</span>
                 <div class="window-controls">
-                    <div class="win-btn">_</div>
+                    <div class="win-btn" onclick="closeApp('jade')">_</div>
                     <div class="win-btn">□</div>
-                    <div class="win-btn" style="background: #ffb3d9">✕</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeApp('jade')">✕</div>
                 </div>
             </div>
             <div class="window-content" id="landing-content">
@@ -43,9 +69,7 @@ c(")(") </pre>
                         Hi, I'm Jade! I'm an aspiring software engineer majoring in Applied Computation and Mathematics
                         at Kennesaw State University! ♡
                     </div>
-                    <button id="launch-btn" onclick="openTerminal()">
-                        &gt; Learn more about who me!
-                    </button>
+
                 </div>
             </div>
         </div>
@@ -53,9 +77,9 @@ c(")(") </pre>
             <div class="window-titlebar">
                 <span class="window-title">♡ jade.exe — chat</span>
                 <div class="window-controls">
-                    <div class="win-btn" onclick="closeterminal()">_</div>
+                    <div class="win-btn" onclick="closeApp('terminal')">_</div>
                     <div class="win-btn">□</div>
-                    <div class="win-btn" style="background: #ffb3d9" onclick="closeTerminal()">✕</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeApp('terminal')">✕</div>
                 </div>
             </div>
             <div class="window-content" id="terminal-body">
@@ -65,7 +89,7 @@ c(")(") </pre>
                         <div class="msg-bubble">
                             <span class="sender">jade g (software engineer)</span>
                             hey! i'm jade — type a command to learn more about me ♡<br><br>
-                            commands: /projects, /skills, /about, /interests, /resume
+                            commands: <br>/about<br>/interests<br>/projects<br>/skills<br>/resume
                         </div>
                     </div>
                 </div>
@@ -90,7 +114,6 @@ c(")(") </pre>
 
     <script src="js/components/taskbar.js"></script>
     <script src="js/components/catnbny.js"></script>
-    <script src="js/components/terminal.js"></script>
     <script src="js/main.js"></script>
 </body>
 

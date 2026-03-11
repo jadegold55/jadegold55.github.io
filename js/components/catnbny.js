@@ -36,7 +36,7 @@ let catIdx = 0;
 
 const bunny = document.getElementById("bunny-critter");
 const cat = document.getElementById("cat-critter");
-console.log(bunny, cat);
+
 bunny.textContent = bunnyFrames[0];
 cat.textContent = catFrames[0];
 
