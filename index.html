@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/components/landing.css">
     <link rel="stylesheet" href="css/components/terminal.css">
     <link rel="stylesheet" href="css/components/desktop.css">
-</head>
+    <link rel="stylesheet" href="css/components/projects.css" </head>
 
 <body>
 
@@ -98,6 +98,97 @@ c(")(") </pre>
                         placeholder="type a command... ^.^" rows="1"></textarea>
                     <button id="send-btn" onclick="sendCommand()">send ♡</button>
                 </div>
+            </div>
+        </div>
+        <div class="window" id="projects-window" style="display: none;">
+            <div class="window-titlebar">
+                <span class="window-title">♡ projects</span>
+                <div class="window-controls">
+                    <div class="win-btn">_</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeApp('projects')">✕</div>
+                </div>
+            </div>
+            <div id="projects-toolbar">
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+            </div>
+            <div id="projects-address">
+                <span>Address:</span>
+                <span>C:\jade\projects\</span>
+            </div>
+            <div id="projects-body">
+                <div class="project-icon" ondblclick="openProject('creativity')">
+                    <img src="assets/folder-04.png" />
+                    <span>creativity spotlight</span>
+                </div>
+                <div class="project-icon" ondblclick="openProject('delannoy')">
+                    <img src="assets/folder-05.png" />
+                    <span>delannoy constructions</span>
+                </div>
+                <div class="project-icon" ondblclick="openProject('promptrefiner')">
+                    <img src="assets/folder-06.png" />
+                    <span>prompt refiner</span>
+                </div>
+            </div>
+        </div>
+        <div class="window project-detail" id="project-creativity" style="display:none;">
+            <div class="window-titlebar">
+                <span class="window-title">creativity spotlight</span>
+                <div class="window-controls">
+                    <div class="win-btn" onclick="closeProject('creativity')">_</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeProject('creativity')">✕</div>
+                </div>
+            </div>
+            <div class="window-content project-detail-content">
+                <span class="label">ABOUT</span>
+                <p>A community Discord bot helping aspiring artists, writers, and creatives share their work. Led
+                    development as team lead.</p>
+                <span class="label">TECH STACK</span>
+                <p>Spring · React · Python · PostgreSQL · AWS EC2 · Docker · GitHub Actions</p>
+                <span class="label">REPO</span>
+                <a href="https://github.com/jadegold55/creative-spotlight" target="_blank">> github link</a>
+            </div>
+        </div>
+
+        <div class="window project-detail" id="project-delannoy" style="display:none;">
+            <div class="window-titlebar">
+                <span class="window-title">delannoy constructions</span>
+                <div class="window-controls">
+                    <div class="win-btn" onclick="closeProject('delannoy')">_</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeProject('delannoy')">✕</div>
+                </div>
+            </div>
+            <div class="window-content project-detail-content">
+                <span class="label">ABOUT</span>
+                <p>A Java GUI interface to display binary generalized Delannoy carpets with analysis tools using
+                    Zeilberger and Gosper algorithms.</p>
+                <span class="label">TECH STACK</span>
+                <p>Python · Java · Java GUI</p>
+                <span class="label">REPO</span>
+                <a href="https://github.com/jadegold55/delannoy-tools" target="_blank">> github link</a>
+            </div>
+        </div>
+
+        <div class="window project-detail" id="project-promptrefiner" style="display:none;">
+            <div class="window-titlebar">
+                <span class="window-title">prompt refiner</span>
+                <div class="window-controls">
+                    <div class="win-btn" onclick="closeProject('promptrefiner')">_</div>
+                    <div class="win-btn">□</div>
+                    <div class="win-btn" style="background: #ffb3d9" onclick="closeProject('promptrefiner')">✕</div>
+                </div>
+            </div>
+            <div class="window-content project-detail-content">
+                <span class="label">ABOUT</span>
+                <p>A desktop app for optimizing the prompts you send to AI models.</p>
+                <span class="label">TECH STACK</span>
+                <p>Flask · React · SQLite</p>
+                <span class="label">REPO</span>
+                <a href="https://github.com/jadegold55/promp-opt" target="_blank">> github link</a>
             </div>
         </div>
     </div>

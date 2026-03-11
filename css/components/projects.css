@@ -1,0 +1,114 @@
+#projects-window {
+    width: min(600px, 95vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+}
+
+#projects-toolbar {
+    display: flex;
+    gap: 16px;
+    padding: 4px 8px;
+    background: var(--win-bg);
+    border-bottom: 1px solid var(--win-border-dark);
+    font-family: 'VT323';
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+#projects-toolbar span:hover {
+    background: var(--win-title);
+    color: #fff;
+    cursor: pointer;
+}
+
+#projects-address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: var(--win-bg);
+    border-bottom: 2px solid;
+    border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight) var(--btn-shadow);
+    font-family: 'VT323';
+    font-size: 16px;
+    color: var(--text-dim);
+}
+
+#projects-address span:last-child {
+    background: #fff;
+    border: 2px solid;
+    border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight) var(--btn-shadow);
+    padding: 2px 8px;
+    flex: 1;
+}
+
+#projects-body {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding: 20px;
+    background: var(--win-body);
+    min-height: 200px;
+    flex-wrap: wrap;
+}
+
+.project-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px;
+    width: 90px;
+}
+
+.project-icon img {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+}
+
+.project-icon span {
+    font-family: 'VT323';
+    font-size: 15px;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.project-icon:hover {
+    background: #6b5b8c40;
+}
+
+.project-detail {
+    width: min(400px, 90vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -48%);
+}
+
+.project-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: 'VT323';
+    font-size: 17px;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.project-detail-content p {
+    margin: 0;
+    padding: 6px 0;
+}
+
+.project-detail-content a {
+    color: var(--win-title);
+    text-decoration: none;
+    font-family: 'VT323';
+    font-size: 17px;
+}
+
+.project-detail-content a:hover {
+    text-decoration: underline;
+}

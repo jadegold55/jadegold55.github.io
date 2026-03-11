@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize taskbar clock
+
     updateClock();
 });
-
 const displayType = {
     jade: 'block',
     projects: 'block',
@@ -13,9 +12,7 @@ const windowIds = {
     projects: 'projects-window',
     terminal: 'terminal-window'
 }
-
 function openApp(appname) {
-
     const windowId = windowIds[appname];
     document.getElementById('loading-bar-container').style.display = 'block';
     let loadingBarFill = document.getElementById('loading-bar-fill');
@@ -31,17 +28,18 @@ function openApp(appname) {
             document.getElementById(windowId).style.display = displayType[appname];
         }
     }, 100);
-
 }
-
 function closeApp(appname) {
-    const windowIds = {
-        jade: 'jade-window',
-        projects: 'projects-window',
-        terminal: 'terminal-window'
-    }
     const windowId = windowIds[appname];
     document.getElementById(windowId).style.display = 'none';
     document.getElementById('desktop-icons').style.display = 'flex';
 
+
+
+}
+function openProject(name) {
+    document.getElementById('project-' + name).style.display = 'block';
+}
+function closeProject(name) {
+    document.getElementById('project-' + name).style.display = 'none';
 }
