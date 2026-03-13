@@ -15,6 +15,26 @@
 
 }
 
+#start-menu {
+    position: fixed;
+    left: 10px;
+    bottom: 42px;
+    min-width: 220px;
+    background: var(--win-body);
+    border: 2px solid;
+    border-color: var(--win-border-light) var(--win-border-dark) var(--win-border-dark) var(--win-border-light);
+    box-shadow: 2px 2px 0 var(--win-border-dark), 1px 1px 0 var(--btn-highlight);
+    padding: 6px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 200;
+}
+
+#start-menu.is-open {
+    display: flex;
+}
+
 .taskbar-btn {
     padding: 0 10px;
     height: 30px;
@@ -33,7 +53,44 @@
 
 }
 
+.taskbar-btn.is-active {
+    border-color: var(--win-border-dark) var(--win-border-light) var(--win-border-light) var(--win-border-dark);
+}
+
 .taskbar-btn:active {
+    border-color: var(--win-border-dark) var(--win-border-light) var(--win-border-light) var(--win-border-dark);
+}
+
+.start-menu-item {
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--btn-face);
+    border: 2px solid;
+    border-color: var(--win-border-light) var(--win-border-dark) var(--win-border-dark) var(--win-border-light);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: var(--text-dark);
+    text-align: left;
+    cursor: pointer;
+}
+
+.start-menu-item img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.start-menu-item:hover,
+.start-menu-item:focus-visible {
+    background: var(--chat-ai);
+    outline: none;
+}
+
+.start-menu-item:active {
     border-color: var(--win-border-dark) var(--win-border-light) var(--win-border-light) var(--win-border-dark);
 }
 

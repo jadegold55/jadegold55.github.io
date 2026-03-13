@@ -38,10 +38,7 @@ body {
 #desktop {
     width: 100vw;
     height: 100vh;
-    background:
-        radial-gradient(ellipse at 20% 30%, #2a1a4a30 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, #3a1a3a20 0%, transparent 50%),
-        #000000;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
     position: relative;
     display: flex;
     align-items: center;

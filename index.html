@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="css/components/landing.css">
     <link rel="stylesheet" href="css/components/terminal.css">
     <link rel="stylesheet" href="css/components/desktop.css">
-    <link rel="stylesheet" href="css/components/projects.css" </head>
+    <link rel="stylesheet" href="css/components/projects.css">
+</head>
 
 <body>
 
@@ -120,7 +121,7 @@ c(")(") </pre>
                         <div class="msg-bubble">
                             <span class="sender">jade g (software engineer)</span>
                             hey! i'm jade — type a command to learn more about me ♡<br><br>
-                            commands: <br>/about<br>/interests<br>/projects<br>/skills<br>/resume
+                            commands: <br>/about<br>/interests<br>/projects<br>/skills<br>/help<br>/clear
                         </div>
                     </div>
                 </div>
@@ -224,13 +225,26 @@ c(")(") </pre>
         </div>
     </div>
 
-    <div id="taskbar">
-        <div id="taskbar">
-            <button class="taskbar-btn" id="btn-start">♡ start</button>
-            <div id="taskbar-clock">
+    <div id="start-menu" aria-hidden="true">
+        <button class="start-menu-item" type="button" data-app="jade">
+            <img src="assets/github-02.png" alt="jade.exe icon">
+            <span>jade.exe</span>
+        </button>
+        <button class="start-menu-item" type="button" data-app="projects">
+            <img src="assets/folder-05.png" alt="projects icon">
+            <span>projects</span>
+        </button>
+        <button class="start-menu-item" type="button" data-app="terminal">
+            <img src="assets/my-puter.png" alt="terminal icon">
+            <span>terminal</span>
+        </button>
+    </div>
 
-                <span id="clock">00:00</span>
-            </div>
+    <div id="taskbar">
+        <button class="taskbar-btn" id="btn-start" type="button" aria-expanded="false" aria-controls="start-menu">♡
+            start</button>
+        <div id="taskbar-clock">
+            <span id="clock">00:00</span>
         </div>
     </div>
 
