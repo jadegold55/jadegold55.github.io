@@ -10,19 +10,21 @@ const windowIds = {
     terminal: 'terminal-window'
 };
 
+const echoedMessages = new Set(['meow', 'help me']);
+
 const terminalResponses = {
     '/about': {
-        text: "I'm Jade, an aspiring software engineer focused on building thoughtful, real-world software. My background is in computational mathematics, but most of my engineering experience comes from shipping projects outside the classroom."
+        text: "Haii, I'm Jade!!! I'm an aspiring software engineer focused on building thoughtful, real-world software!! ^.^"
     },
     '/interests': {
         text: 'I spend a lot of time around code, guitar, poetry, games, volunteering, teaching, and learning new systems. I am especially interested in AI and agentic tools right now.'
     },
     '/projects': {
-        text: 'Opening the projects folder now. Current highlights: Creativity Spotlight, Delannoy Constructions, and Prompt Refiner.',
+        text: 'Opening the projects folder now :D.  Current highlights: Creativity Spotlight, Delannoy Constructions, and Prompt Refiner.',
         action: () => openApp('projects')
     },
     '/skills': {
-        text: 'Skills: Java, Python, Spring, React, Flask, PostgreSQL, SQLite, Docker, GitHub Actions, AWS EC2, and building product ideas end to end.'
+        text: 'Skills: Java, Python, Spring, React, Flask, PostgreSQL, SQLite, Docker, GitHub Actions, AWS EC2, and building product ideas end to end! ^.^'
     },
     '/help': {
         text: 'Available commands:\n/about\n/interests\n/projects\n/skills\n/help\n/clear'
@@ -336,6 +338,16 @@ function sendCommand() {
         return;
     }
 
+    if (echoedMessages.has(command)) {
+        appendMessage({
+            type: 'me',
+            sender: 'jade g (software engineer)',
+            avatar: ':)',
+            text: rawCommand
+        });
+        return;
+    }
+
     const response = terminalResponses[command];
 
     if (!response) {
@@ -412,8 +424,7 @@ function autoResizeTerminalInput() {
         return;
     }
 
-    input.style.height = 'auto';
-    input.style.height = `${Math.min(input.scrollHeight, 92)}px`;
+    input.style.height = '36px';
 }
 
 function focusTerminalInput() {
