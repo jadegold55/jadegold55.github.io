@@ -61,6 +61,10 @@
     padding: 8px;
 }
 
+.window.is-maximized .window-titlebar {
+    cursor: default;
+}
+
 .window-resize-handle {
     position: absolute;
     right: 2px;

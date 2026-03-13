@@ -12,6 +12,9 @@ const windowIds = {
 
 const echoedMessages = new Set(['meow', 'help me']);
 
+const maximizedButtonLabel = '❐';
+const restoredButtonLabel = '□';
+
 const terminalResponses = {
     '/about': {
         text: "Haii, I'm Jade!!! I'm an aspiring software engineer focused on building thoughtful, real-world software!! ^.^"
@@ -74,12 +77,28 @@ function enhanceWindow(windowElement) {
 
     const titlebar = windowElement.querySelector('.window-titlebar');
     if (titlebar) {
+        titlebar.addEventListener('dblclick', (event) => {
+            if (event.target.closest('.window-controls')) {
+                return;
+            }
+
+            toggleMaximize(windowElement);
+        });
+
         titlebar.addEventListener('pointerdown', (event) => {
             if (event.button !== 0 || event.target.closest('.window-controls')) {
                 return;
             }
 
             startDrag(event, windowElement);
+        });
+    }
+
+    const maximizeButton = windowElement.querySelector('.window-controls .win-btn:nth-child(2)');
+    if (maximizeButton) {
+        maximizeButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMaximize(windowElement);
         });
     }
 
@@ -98,6 +117,7 @@ function enhanceWindow(windowElement) {
 
     windowElement.appendChild(resizeHandle);
     windowElement.dataset.enhanced = 'true';
+    updateMaximizeButton(windowElement);
 }
 
 function prepareWindow(windowElement) {
@@ -109,7 +129,13 @@ function prepareWindow(windowElement) {
 
     if (windowElement.dataset.positioned === 'true') {
         activateWindow(windowElement);
-        constrainWindow(windowElement);
+        if (isMaximized(windowElement)) {
+            fitMaximizedWindow(windowElement);
+        } else {
+            constrainWindow(windowElement);
+        }
+
+        updateMaximizeButton(windowElement);
         return;
     }
 
@@ -133,6 +159,7 @@ function prepareWindow(windowElement) {
 
     activateWindow(windowElement);
     constrainWindow(windowElement);
+    updateMaximizeButton(windowElement);
 }
 
 function activateWindow(windowElement) {
@@ -146,6 +173,11 @@ function getTaskbarHeight() {
 }
 
 function constrainWindow(windowElement) {
+    if (isMaximized(windowElement)) {
+        fitMaximizedWindow(windowElement);
+        return;
+    }
+
     const rect = windowElement.getBoundingClientRect();
     const maxLeft = Math.max(0, window.innerWidth - 120);
     const maxTop = Math.max(0, window.innerHeight - getTaskbarHeight() - 40);
@@ -160,9 +192,96 @@ function constrainWindow(windowElement) {
     windowElement.style.height = `${Math.round(height)}px`;
 }
 
+function isMaximized(windowElement) {
+    return windowElement.dataset.maximized === 'true';
+}
+
+function fitMaximizedWindow(windowElement) {
+    const taskbarHeight = getTaskbarHeight();
+
+    windowElement.classList.add('is-maximized');
+    windowElement.style.left = '0px';
+    windowElement.style.top = '0px';
+    windowElement.style.width = `${Math.max(220, window.innerWidth)}px`;
+    windowElement.style.height = `${Math.max(120, window.innerHeight - taskbarHeight)}px`;
+}
+
+function updateMaximizeButton(windowElement) {
+    const maximizeButton = windowElement.querySelector('.window-controls .win-btn:nth-child(2)');
+
+    if (maximizeButton) {
+        maximizeButton.textContent = isMaximized(windowElement)
+            ? maximizedButtonLabel
+            : restoredButtonLabel;
+    }
+}
+
+function maximizeWindow(windowElement) {
+    if (!windowElement || isMaximized(windowElement)) {
+        return;
+    }
+
+    prepareWindow(windowElement);
+
+    windowElement.dataset.restoreLeft = windowElement.style.left;
+    windowElement.dataset.restoreTop = windowElement.style.top;
+    windowElement.dataset.restoreWidth = windowElement.style.width;
+    windowElement.dataset.restoreHeight = windowElement.style.height;
+    windowElement.dataset.maximized = 'true';
+
+    fitMaximizedWindow(windowElement);
+    activateWindow(windowElement);
+    updateMaximizeButton(windowElement);
+}
+
+function restoreWindow(windowElement) {
+    if (!windowElement || !isMaximized(windowElement)) {
+        return;
+    }
+
+    windowElement.dataset.maximized = 'false';
+    windowElement.classList.remove('is-maximized');
+    windowElement.style.left = windowElement.dataset.restoreLeft || windowElement.style.left;
+    windowElement.style.top = windowElement.dataset.restoreTop || windowElement.style.top;
+    windowElement.style.width = windowElement.dataset.restoreWidth || windowElement.style.width;
+    windowElement.style.height = windowElement.dataset.restoreHeight || windowElement.style.height;
+
+    constrainWindow(windowElement);
+    activateWindow(windowElement);
+    updateMaximizeButton(windowElement);
+}
+
+function exitMaximizedState(windowElement) {
+    if (!isMaximized(windowElement)) {
+        return;
+    }
+
+    windowElement.dataset.maximized = 'false';
+    windowElement.classList.remove('is-maximized');
+    updateMaximizeButton(windowElement);
+}
+
+function toggleMaximize(windowElement) {
+    if (!windowElement) {
+        return;
+    }
+
+    if (isMaximized(windowElement)) {
+        restoreWindow(windowElement);
+        return;
+    }
+
+    maximizeWindow(windowElement);
+}
+
 function startDrag(event, windowElement) {
     event.preventDefault();
     prepareWindow(windowElement);
+
+    if (isMaximized(windowElement)) {
+        return;
+    }
+
     activateWindow(windowElement);
 
     const rect = windowElement.getBoundingClientRect();
@@ -192,6 +311,11 @@ function startResize(event, windowElement) {
     event.preventDefault();
     event.stopPropagation();
     prepareWindow(windowElement);
+
+    if (isMaximized(windowElement)) {
+        exitMaximizedState(windowElement);
+    }
+
     activateWindow(windowElement);
 
     const startRect = windowElement.getBoundingClientRect();
@@ -247,6 +371,10 @@ function showWindow(windowElement, displayMode = 'block') {
 function hideWindow(windowElement) {
     if (!windowElement) {
         return;
+    }
+
+    if (isManagedWindow(windowElement) && isMaximized(windowElement)) {
+        restoreWindow(windowElement);
     }
 
     windowElement.style.display = 'none';

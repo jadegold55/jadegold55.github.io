@@ -6,9 +6,24 @@
 }
 
 #landing-content {
+    height: 100%;
     padding: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background:
+        linear-gradient(180deg, #d8d0ee 0%, #cfc6e4 48%, #c4bbdd 100%);
 
+}
+
+#landing-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding-bottom: 8px;
+    background:
+        linear-gradient(180deg, #d8d0ee 0%, #cfc6e4 48%, #c4bbdd 100%);
 }
 
 #ascii-stage {
@@ -65,6 +80,7 @@
     border: 2px solid;
     border-color: var(--btn-shadow) var(--btn-highlight) var(--btn-highlight) var(--btn-shadow);
     padding: 8px 10px;
+    margin: 0;
     font-family: 'VT323';
     font-size: 17px;
     color: var(--text-dark);
