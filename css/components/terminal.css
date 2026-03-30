@@ -133,8 +133,11 @@
     color: var(--text-dark);
     cursor: pointer;
     white-space: nowrap;
+    transition: box-shadow 0.2s ease;
+}
 
-
+#send-btn:hover {
+    box-shadow: 0 0 6px #ffb3d970, 0 0 14px #ffb3d940;
 }
 
 

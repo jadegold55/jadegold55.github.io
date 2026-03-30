@@ -49,7 +49,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--text-dark)
+    color: var(--text-dark);
+    transition: box-shadow 0.2s ease;
+}
+
+.win-btn:hover {
+    box-shadow: 0 0 5px #6b5b8c60, 0 0 10px #6b5b8c30;
 }
 
 .win-btn:active {

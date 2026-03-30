@@ -16,10 +16,15 @@
     color: var(--text-dark);
 }
 
+#projects-toolbar span {
+    transition: box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
 #projects-toolbar span:hover {
     background: var(--win-title);
     color: #fff;
     cursor: pointer;
+    box-shadow: 0 0 6px #6b5b8c60, 0 0 12px #6b5b8c30;
 }
 
 #projects-address {
@@ -61,6 +66,7 @@
     cursor: pointer;
     padding: 8px;
     width: 90px;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .project-icon img {
@@ -74,10 +80,16 @@
     font-size: 15px;
     color: var(--text-dark);
     text-align: center;
+    transition: text-shadow 0.2s ease;
 }
 
 .project-icon:hover {
     background: #6b5b8c40;
+    box-shadow: 0 0 8px #ffb3d960, 0 0 16px #ffb3d930;
+}
+
+.project-icon:hover span {
+    text-shadow: 0 0 4px #6b5b8caa;
 }
 
 .project-detail {

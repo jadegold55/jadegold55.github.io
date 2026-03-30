@@ -20,9 +20,7 @@
     cursor: pointer;
     padding: 8px;
     width: 80px;
-
-
-
+    transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .desktop-icon img {
@@ -38,11 +36,16 @@
     color: #fff;
     text-align: center;
     text-shadow: 1px 1px 0 #000;
-
+    transition: text-shadow 0.2s ease;
 }
 
 .desktop-icon:hover {
     background: #ffffff20;
+    box-shadow: 0 0 8px #ffb3d980, 0 0 16px #ffb3d940;
+}
+
+.desktop-icon:hover span {
+    text-shadow: 1px 1px 0 #000, 0 0 6px #ffb3d980;
 }
 
 .desktop-icon.selected {

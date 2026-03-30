@@ -50,7 +50,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: box-shadow 0.2s ease;
+}
 
+.taskbar-btn:hover {
+    box-shadow: 0 0 6px #6b5b8c60, 0 0 12px #6b5b8c30;
+}
+
+#start-btn:hover {
+    box-shadow: 0 0 8px #ffb3d970, 0 0 14px #ffb3d940;
 }
 
 .taskbar-btn.is-active {
@@ -76,6 +84,7 @@
     color: var(--text-dark);
     text-align: left;
     cursor: pointer;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .start-menu-item img {
@@ -88,6 +97,7 @@
 .start-menu-item:focus-visible {
     background: var(--chat-ai);
     outline: none;
+    box-shadow: 0 0 6px #6b5b8c50, 0 0 12px #6b5b8c25;
 }
 
 .start-menu-item:active {
